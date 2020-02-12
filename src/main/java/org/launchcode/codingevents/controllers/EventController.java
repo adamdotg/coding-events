@@ -51,4 +51,14 @@ public class EventController {
         }
         return "redirect:";
     }
+
+    @GetMapping("")
+    public String displayEditForm(Model model, @PathVariable int eventId){
+      //controller code will go here
+    }
+
+    @PostMapping("")
+    public String processEditForm(int eventId, String name, String description){
+      //controller code will go here
+    }
 }
