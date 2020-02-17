@@ -1,8 +1,6 @@
 package org.launchcode.codingevents.models;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Event {
 
@@ -20,10 +18,21 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
-    public Event(String name, String description, String contactEmail) {
+    //@NotNull how does this get validated
+    @NotBlank(message = "Enter a location.")
+    @Size(max = 50, message = "Location too long.")
+    private String location;
+
+    //How do I validate this?
+    @AssertTrue(message="You must register for this event.")
+    private Boolean registered;
+
+    public Event(String name, String description, String contactEmail, String location, Boolean registered) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+        this.location = location;
+        this.registered = registered;
         this.id = nextId;
         nextId++;
     }
@@ -56,6 +65,22 @@ public class Event {
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Boolean getRegistered() {
+        return registered;
+    }
+
+    public void setRegistered(Boolean registered) {
+        this.registered = registered;
     }
 
     @Override
