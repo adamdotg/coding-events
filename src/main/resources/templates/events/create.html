@@ -33,12 +33,18 @@
         <p class = "error" th:errors = "${event.contactEmail}"></p>
 
     </div>
-<!--    <div class = "form-group">-->
-<!--        <label>Registration-->
-<!--            <input type= "checkbox" name="registered" th:value = "${event.registered}" class="form-control">-->
-<!--        </label>-->
-<!--        <p class = "error" th:errors = "${event.registered}"></p>-->
-<!--    </div>-->
+
+
+    <div class = "form-group">
+        <label>Registration
+<!--            <input th:field = "${event.registered}" class = "form-control">-->
+            <input type = "checkbox" name = "Yes" value = "Yes" th:checked = "${event.registered}">
+            <input type = "checkbox" name = "No" value="No">
+        </label>
+        <p class = "error" th:errors = "${event.registered}"></p>
+    </div>
+
+
     <div class = "form-group">
         <label>Attendees
             <input th:field = "${event.attendees}" class="form-control">
