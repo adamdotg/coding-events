@@ -14,6 +14,7 @@
             <th>Location</th>
             <th>Contact Email</th>
             <th>Registration</th>
+            <th>Attendees</th>
             <th>Edit</th>
         </tr>
     </thead>
@@ -24,6 +25,7 @@
         <td th:text="${event.location}"></td>
         <td th:text="${event.contactEmail}"></td>
         <td th:checkbox="${event.registered}"></td>
+        <td th:text="${event.attendees}"></td>
         <td><a th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a></td>
     </tr>
 </table>

@@ -27,12 +27,17 @@ public class Event {
     @AssertTrue(message="You must register for this event.")
     private Boolean registered;
 
-    public Event(String name, String description, String contactEmail, String location, Boolean registered) {
+    @Min(value=1, message="Must be more than 0 attendees.")
+    @Max(value=10, message="You can only bring 9 friends.")
+    private int attendees;
+
+    public Event(String name, String description, String contactEmail, String location, Boolean registered, int attendees) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.location = location;
         this.registered = registered;
+        this.attendees = attendees;
         this.id = nextId;
         nextId++;
     }
@@ -81,6 +86,14 @@ public class Event {
 
     public void setRegistered(Boolean registered) {
         this.registered = registered;
+    }
+
+    public int getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(int attendees) {
+        this.attendees = attendees;
     }
 
     @Override
